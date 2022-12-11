@@ -2,13 +2,14 @@ package org.example;
 
 import java.io.IOException;
 
-import java.lang.reflect.Array;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
 import java.net.http.HttpResponse.BodyHandlers;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.util.Calendar;
 
 import org.example.model.Filme;
 import org.json.*;
@@ -26,13 +27,17 @@ public class Main {
         JSONArray items = jsonResponse.getJSONArray("items");
         ArrayList<Filme> filmes = new ArrayList<>();
 
+
+
         for (Object item: items
         ) {
             JSONObject jsonObject = new JSONObject(item.toString());
-           String titulo = jsonObject.getString("title");
-           String rank = jsonObject.getString("rank");
-           String imageURL = jsonObject.getString("image");
-           Filme filme = new Filme(titulo, rank, imageURL);
+           String JSONtitulo = jsonObject.getString("title");
+           String JSONrank = jsonObject.getString("rank");
+           String JSONimageURL = jsonObject.getString("image");
+           String JSONano = jsonObject.getString("year");
+           String JSONnota = jsonObject.getString("imDbRating");
+           Filme filme = new Filme(JSONtitulo, JSONrank, JSONimageURL, JSONnota, JSONano);
            filmes.add(filme);
         }
 

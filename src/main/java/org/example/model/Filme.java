@@ -1,14 +1,21 @@
 package org.example.model;
 
+import java.util.Date;
+
 public class Filme {
     private String titulo;
     private String rank;
     private String ImgeURL;
 
-    public Filme(String titulo, String rank, String imgeURL) {
+    private String nota;
+    private String ano;
+
+    public Filme(String titulo, String rank, String imgeURL, String nota, String ano) {
         this.titulo = titulo;
         this.rank = rank;
-        this.ImgeURL = imgeURL;
+        ImgeURL = imgeURL;
+        this.nota = nota;
+        this.ano = ano;
     }
 
     public String getTitulo() {
