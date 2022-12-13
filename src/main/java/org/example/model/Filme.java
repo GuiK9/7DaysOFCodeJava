@@ -1,12 +1,11 @@
 package org.example.model;
 
-import java.util.Date;
+import org.json.JSONObject;
 
 public class Filme {
     private String titulo;
     private String rank;
     private String ImgeURL;
-
     private String nota;
     private String ano;
 
@@ -16,6 +15,20 @@ public class Filme {
         ImgeURL = imgeURL;
         this.nota = nota;
         this.ano = ano;
+    }
+
+    public Filme(Object JSONObject) {
+        JSONObject jsonObject = new JSONObject(JSONObject.toString());
+        String JSONtitulo = jsonObject.getString("title");
+        String JSONrank = jsonObject.getString("rank");
+        String JSONimageURL = jsonObject.getString("image");
+        String JSONano = jsonObject.getString("year");
+        String JSONnota = jsonObject.getString("imDbRating");
+        this.titulo = JSONtitulo;
+        this.rank = JSONrank;
+        ImgeURL = JSONimageURL;
+        this.nota = JSONnota;
+        this.ano = JSONano;
     }
 
     public String getTitulo() {
@@ -37,7 +50,6 @@ public class Filme {
     public String getImgeURL() {
         return ImgeURL;
     }
-
     @Override
     public String toString() {
         return this.titulo + this.rank;
