@@ -6,13 +6,12 @@ import java.util.ArrayList;
 
 import org.example.model.Movie;
 import org.example.service.HTMLGenerator;
-import org.example.service.ImdbApiClient;
 import org.json.*;
+import static org.example.service.ImdbApiClient.clientCall;
 
 public class Main {
     public static void main(String[] args) throws IOException {
-        ImdbApiClient Apiclient = new ImdbApiClient();
-        JSONObject JSONResponse = Apiclient.clientCall();
+        JSONObject JSONResponse = clientCall();
         JSONArray jsonArray = JSONResponse.getJSONArray("items");
         ArrayList<Movie> filmes = new ArrayList<>();
 

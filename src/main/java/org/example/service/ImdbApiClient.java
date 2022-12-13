@@ -12,7 +12,7 @@ import java.net.http.HttpResponse;
 import java.util.ArrayList;
 
 public  class ImdbApiClient {
-    public JSONObject clientCall(){
+    public static JSONObject clientCall(){
         HttpClient client = HttpClient.newBuilder().build();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://imdb-api" +
                 ".com/en/API/Top250Movies/k_bxc76mes")).build();
