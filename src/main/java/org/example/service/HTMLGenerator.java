@@ -1,6 +1,6 @@
 package org.example.service;
 
-import org.example.model.Filme;
+import org.example.model.Movie;
 
 import java.io.BufferedWriter;
 import java.io.FileWriter;
@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.util.ArrayList;
 
 public class HTMLGenerator {
-    ArrayList<Filme> filmes;
-    public HTMLGenerator(ArrayList<Filme> filmes) {
+    ArrayList<Movie> filmes;
+    public HTMLGenerator(ArrayList<Movie> filmes) {
         this.filmes = filmes;
     }
 
@@ -36,7 +36,7 @@ public class HTMLGenerator {
 
 
         buffWrite.append(head);
-        for (Filme filme: filmes
+        for (Movie filme: filmes
         ) {
             buffWrite.append(generateMovieCard(filme));
         }
@@ -45,7 +45,7 @@ public class HTMLGenerator {
         buffWrite.close();
     }
 
-    private String generateMovieCard(Filme filme) {
+    private String generateMovieCard(Movie filme) {
         String movieCard = """
                 <div>
                 """

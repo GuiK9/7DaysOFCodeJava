@@ -2,14 +2,14 @@ package org.example.model;
 
 import org.json.JSONObject;
 
-public class Filme {
+public class Movie {
     private String titulo;
     private String rank;
     private String ImgeURL;
     private String nota;
     private String ano;
 
-    public Filme(String titulo, String rank, String imgeURL, String nota, String ano) {
+    public Movie(String titulo, String rank, String imgeURL, String nota, String ano) {
         this.titulo = titulo;
         this.rank = rank;
         ImgeURL = imgeURL;
@@ -17,7 +17,7 @@ public class Filme {
         this.ano = ano;
     }
 
-    public Filme(Object JSONObject) {
+    public Movie(Object JSONObject) {
         JSONObject jsonObject = new JSONObject(JSONObject.toString());
         String JSONtitulo = jsonObject.getString("title");
         String JSONrank = jsonObject.getString("rank");
