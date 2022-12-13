@@ -12,6 +12,7 @@ import java.util.ArrayList;
 import java.util.Calendar;
 
 import org.example.model.Filme;
+import org.example.service.HTMLGenerator;
 import org.json.*;
 
 
@@ -40,6 +41,9 @@ public class Main {
            Filme filme = new Filme(JSONtitulo, JSONrank, JSONimageURL, JSONnota, JSONano);
            filmes.add(filme);
         }
+
+        HTMLGenerator htmlGenerator = new HTMLGenerator(filmes);
+        htmlGenerator.generate();
 
         for (Object filme:filmes
         ) {

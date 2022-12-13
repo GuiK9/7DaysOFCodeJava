@@ -26,6 +26,14 @@ public class Filme {
         return rank;
     }
 
+    public String getNota() {
+        return nota;
+    }
+
+    public String getAno() {
+        return ano;
+    }
+
     public String getImgeURL() {
         return ImgeURL;
     }
