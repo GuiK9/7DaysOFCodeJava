@@ -1,8 +1,6 @@
 package org.example.service;
 
 import io.github.cdimascio.dotenv.Dotenv;
-import org.example.model.Movie;
-import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.io.IOException;
@@ -10,9 +8,8 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.ArrayList;
 
-public  class ImdbApiClient {
+public  class ImdbApiClient implements APIClient {
     public static JSONObject clientCall(){
         HttpClient client = HttpClient.newBuilder().build();
         HttpRequest request = HttpRequest.newBuilder().uri(URI.create("https://imdb-api" +
@@ -27,11 +24,6 @@ public  class ImdbApiClient {
             System.out.println(e.getMessage());
         }
 
-        JSONObject jsonResponse = new JSONObject(response.body());
-        JSONArray jsonArray = jsonResponse.getJSONArray("items");
-        ArrayList<Movie> filmes = new ArrayList<>();
-
-        return jsonResponse;
-
+        return new JSONObject(response.body());
     }
 }

@@ -1,50 +1,49 @@
 package org.example.model;
 
+import org.example.service.Content;
 import org.json.JSONObject;
 
-public class Movie {
-    private String titulo;
+public class Movie implements Content {
+    private String title;
     private String rank;
     private String ImgeURL;
-    private String nota;
-    private String ano;
+    private String rating;
+    private String year;
 
-    public Movie(String titulo, String rank, String imgeURL, String nota, String ano) {
-        this.titulo = titulo;
+    public Movie(String title, String rank, String imgeURL, String rating, String year) {
+        this.title = title;
         this.rank = rank;
         ImgeURL = imgeURL;
-        this.nota = nota;
-        this.ano = ano;
+        this.rating = rating;
+        this.year = year;
     }
 
     public Movie(Object JSONObject) {
         JSONObject jsonObject = new JSONObject(JSONObject.toString());
-        String JSONtitulo = jsonObject.getString("title");
+        String JSONtitle = jsonObject.getString("title");
         String JSONrank = jsonObject.getString("rank");
         String JSONimageURL = jsonObject.getString("image");
-        String JSONano = jsonObject.getString("year");
-        String JSONnota = jsonObject.getString("imDbRating");
-        this.titulo = JSONtitulo;
+        String JSONYear = jsonObject.getString("year");
+        String JSONRating = jsonObject.getString("imDbRating");
+        this.title = JSONtitle;
         this.rank = JSONrank;
         ImgeURL = JSONimageURL;
-        this.nota = JSONnota;
-        this.ano = JSONano;
+        this.rating = JSONRating;
+        this.year = JSONYear;
     }
 
-    public String getTitulo() {
-        return titulo;
+    public String getTitle() {
+        return title;
     }
 
-    public String getRank() {
-        return rank;
+    public String getRank() { return rank; }
+
+    public String getRating() {
+        return rating;
     }
 
-    public String getNota() {
-        return nota;
-    }
-
-    public String getAno() {
-        return ano;
+    public String getYear() {
+        return year;
     }
 
     public String getImgeURL() {
@@ -52,6 +51,6 @@ public class Movie {
     }
     @Override
     public String toString() {
-        return this.titulo + this.rank;
+        return this.title + this.rank;
     }
 }

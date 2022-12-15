@@ -49,9 +49,9 @@ public class HTMLGenerator {
         String movieCard = """
                 <div>
                 """
-                + "<h2> "+ filme.getTitulo() + "</h2>"
+                + "<h2> "+ filme.getTitle() + "</h2>"
                 + "<image src=\"" + filme.getImgeURL() + "\"></image>"
-                + "<p> nota: "+filme.getNota() + " - Ano: " + filme.getAno() + "</p>"
+                + "<p> nota: "+filme.getRating() + " - Ano: " + filme.getYear() + "</p>"
                 +
                 """ 
                 </div>
