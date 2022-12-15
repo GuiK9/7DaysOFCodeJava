@@ -1,14 +1,15 @@
 package org.example.service;
 
-public interface Content {
-    public String getTitle();
+import org.jetbrains.annotations.NotNull;
 
-    public String getRank();
+public interface Content extends Comparable {
+    String getTitle();
 
-    public String getRating();
+    String getRating();
 
-    public String getYear();
+    String getYear();
 
-    public String getImgeURL();
+    String getImgeURL();
 
+    int compareTo(@NotNull Object o);
 }

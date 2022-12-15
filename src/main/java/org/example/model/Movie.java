@@ -1,6 +1,7 @@
 package org.example.model;
 
 import org.example.service.Content;
+import org.jetbrains.annotations.NotNull;
 import org.json.JSONObject;
 
 public class Movie implements Content {
@@ -36,21 +37,23 @@ public class Movie implements Content {
         return title;
     }
 
-    public String getRank() { return rank; }
-
     public String getRating() {
         return rating;
     }
 
-    public String getYear() {
-        return year;
-    }
-
+    public String getYear() { return year; }
     public String getImgeURL() {
         return ImgeURL;
     }
     @Override
     public String toString() {
-        return this.title + this.rank;
+        return "Titulo: " + this.title + " Rank: " + this.rank + " nota: " + this.rating;
+    }
+
+    @Override
+    public int compareTo(@NotNull Object o) {
+        Movie movie = (Movie) o;
+        Double ratingDouble = Double.parseDouble(this.rating);
+        return ratingDouble.compareTo((Double.parseDouble(movie.getRating())));
     }
 }
